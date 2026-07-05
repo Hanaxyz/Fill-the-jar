@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <title>Fill The Jar</title>
+    <link rel="icon" href="images/jar.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header>
+<div class="about">About</div>
+<div class="how">How to Play</div>
+
+
+
+</header>
+<h1>Fill The Jar</h1>
+    <input type="text" placeholder="Enter A Title" class="input-title">
+
+    <div class="modal" style="display: none;">
+
+<div class="content">
+<span id="close-btn">&times;</span>
+<p id="text">hello</p>
+
+</div>
+
+</div>
+<!--Palette Part !-->
+
+<div class="Palette">
+<div class="material-circle" id="glitter"></div>
+<div class="material-circle" id="cute"></div>
+<div class="material-circle" id="sand"></div>
+<div class="material-circle" id="pearl"></div>
+<div class="material-circle" id="ocean"></div>
+<div class="material-circle" id="hearts">❤️</div>
+<div class="material-circle" id="stars">⭐</div>
+<div class="material-circle" id="diamond">💎</div>
+<div class="material-circle" id="leaf">🍀</div>
+
+<div id="pipe"></div>
+
+
+
+</div>
+
+
+<!--END OF Palette Part !-->
+
+
+
+
+
+
+<!--Start of add and delete jars-->
+
+<div class="buttons-group">
+ <button id="btn-add">+</button>
+<button id="btn-minus">-</button>
+</div>
+
+<!--End of add and delete jars-->
+
+
+
+
+<div id="jars-container" class="all-jars-container"></div>
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
