@@ -39,39 +39,96 @@ let materials = {
 
 
 
-// touch and mouse logic 
+
+
 function startInteraction(e) {
+  let x, y;
+
+  if (e.touches && e.touches.length > 0) {
+    x = e.touches[0].clientX;
+    y = e.touches[0].clientY;
+  } else {
+    x = mouseX;
+    y = mouseY;
+  }
+
+  let target = document.elementFromPoint(x, y);
   let palette = select('.Palette');
+
   if (!palette) return;
-  
 
-  let x = e.touches ? e.touches[0].clientX : mouseX;
-  let y = e.touches ? e.touches[0].clientY : mouseY;
-  
-  let rect = palette.elt.getBoundingClientRect();
-
-  if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
+  if (target && target.closest('.Palette')) {
     isDraggingPalette = true;
+
+    let rect = palette.elt.getBoundingClientRect();
     dragOffsetX = x - rect.left;
     dragOffsetY = y - rect.top;
+  } else {
+    isDraggingPalette = false;
   }
 }
 
 function moveInteraction(e) {
-  if (isDraggingPalette) {
-    let x = e.touches ? e.touches[0].clientX : mouseX;
-    let y = e.touches ? e.touches[0].clientY : mouseY;
-    
-    let palette = select('.Palette');
-    palette.position(x - dragOffsetX, y - dragOffsetY);
+  if (!isDraggingPalette) return;
+
+  e.preventDefault();
+
+  let x, y;
+
+  if (e.touches && e.touches.length > 0) {
+    x = e.touches[0].clientX;
+    y = e.touches[0].clientY;
+  } else {
+    x = mouseX;
+    y = mouseY;
+  }
+
+  let palette = select('.Palette');
+
+  if (palette) {
+    palette.position(
+      x - dragOffsetX,
+      y - dragOffsetY
+    );
   }
 }
 
+function endInteraction() {
+  isDraggingPalette = false;
+}
 
-function mousePressed(e) { startInteraction(e); }
-function touchStarted(e) { startInteraction(e); return false; }
-function mouseDragged(e) { moveInteraction(e); }
-function touchMoved(e) { moveInteraction(e); return false; }
+function mousePressed(e) {
+  startInteraction(e);
+}
+
+function mouseDragged(e) {
+  moveInteraction(e);
+}
+
+function mouseReleased() {
+  endInteraction();
+}
+
+function touchStarted(e) {
+  startInteraction(e);
+
+  if (isDraggingPalette) {
+    return false;
+  }
+}
+
+function touchMoved(e) {
+  if (isDraggingPalette) {
+    moveInteraction(e);
+    return false;
+  }
+}
+
+function touchEnded() {
+  endInteraction();
+}
+
+
 
 //add a jar 
 
@@ -136,15 +193,28 @@ btnClear.style('margin-top', '65px');
     }
   });
 
-  select('#glitter').mousePressed(() => selectMaterial(materials.glitter));
-  select('#sand').mousePressed(() => selectMaterial(materials.sand));
-  select('#pearl').mousePressed(() => selectMaterial(materials.pearl));
-  select('#cute').mousePressed(() => selectMaterial(materials.cute));
-  select('#ocean').mousePressed(() => selectMaterial(materials.ocean));
-  select('#hearts').mousePressed(() => selectMaterial(materials.hearts));
-  select('#stars').mousePressed(() => selectMaterial(materials.stars));
-  select('#diamond').mousePressed(() => selectMaterial(materials.diamond));
-  select('#leaf').mousePressed(() => selectMaterial(materials.leaf));
+  function bindButton(id, callback) {
+  const el = document.getElementById(id);
+
+  el.addEventListener("pointerdown", function (e) {
+    e.preventDefault();
+    callback();
+  });
+}
+
+bindButton("btn-add", addJar);
+bindButton("btn-minus", removeJar);
+
+bindButton("glitter", () => selectMaterial(materials.glitter));
+bindButton("sand", () => selectMaterial(materials.sand));
+bindButton("pearl", () => selectMaterial(materials.pearl));
+bindButton("cute", () => selectMaterial(materials.cute));
+bindButton("ocean", () => selectMaterial(materials.ocean));
+bindButton("hearts", () => selectMaterial(materials.hearts));
+bindButton("stars", () => selectMaterial(materials.stars));
+bindButton("diamond", () => selectMaterial(materials.diamond));
+bindButton("leaf", () => selectMaterial(materials.leaf));
+
 }
 
 
