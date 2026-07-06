@@ -37,42 +37,41 @@ let materials = {
   leaf:   { emoji: "🍀", size: 15, speed: 2, name: "leaf" }
 };
 
-//palette drag:
-function mousePressed() {
+
+
+// touch and mouse logic 
+function startInteraction(e) {
   let palette = select('.Palette');
   if (!palette) return;
+  
+
+  let x = e.touches ? e.touches[0].clientX : mouseX;
+  let y = e.touches ? e.touches[0].clientY : mouseY;
+  
   let rect = palette.elt.getBoundingClientRect();
 
-  if (mouseX >= rect.left && mouseX <= rect.right &&
-      mouseY >= rect.top && mouseY <= rect.bottom) {
-    let target = document.elementFromPoint(mouseX, mouseY);
-    if (target && target.closest && target.closest('.material-circle')) {
-      return;
-    }
+  if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
     isDraggingPalette = true;
-    dragOffsetX = mouseX - rect.left;
-    dragOffsetY = mouseY - rect.top;
-    paletteX = rect.left;
-    paletteY = rect.top;
+    dragOffsetX = x - rect.left;
+    dragOffsetY = y - rect.top;
   }
 }
 
-function mouseDragged() {
+function moveInteraction(e) {
   if (isDraggingPalette) {
+    let x = e.touches ? e.touches[0].clientX : mouseX;
+    let y = e.touches ? e.touches[0].clientY : mouseY;
+    
     let palette = select('.Palette');
-    if (palette) {
-      let newX = mouseX - dragOffsetX;
-      let newY = mouseY - dragOffsetY;
-      palette.position(newX, newY);
-      paletteX = newX;
-      paletteY = newY;
-    }
+    palette.position(x - dragOffsetX, y - dragOffsetY);
   }
 }
 
-function mouseReleased() {
-  isDraggingPalette = false;
-}
+
+function mousePressed(e) { startInteraction(e); }
+function touchStarted(e) { startInteraction(e); return false; }
+function mouseDragged(e) { moveInteraction(e); }
+function touchMoved(e) { moveInteraction(e); return false; }
 
 //add a jar 
 
