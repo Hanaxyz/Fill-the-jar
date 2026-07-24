@@ -184,12 +184,12 @@ function setup() {
 
   let btnClear = createButton('Clear');
 
-btnClear.style('margin-top', '65px');
-  btnClear.position(140, 20);
-  btnClear.mousePressed(() => {
-    if (jars.length > 0) {
-      jars[activeJarIndex].sparkles = [];
-      jars[activeJarIndex].fillLevel = 0;
+btnClear.parent(document.querySelector(".buttons-group"));
+
+btnClear.mousePressed(() => {
+  if (jars.length > 0) {
+    jars[activeJarIndex].sparkles = [];
+    jars[activeJarIndex].fillLevel = 0;
     }
   });
 
