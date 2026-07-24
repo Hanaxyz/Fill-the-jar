@@ -175,7 +175,7 @@ function renderJars() {
 // set up 
 function setup() {
   let myCanvas = createCanvas(windowWidth, windowHeight);
- myCanvas.position(0,0);
+
 myCanvas.style('z-index','0');
 myCanvas.style('pointer-events','none');
   textFont('Arial');
