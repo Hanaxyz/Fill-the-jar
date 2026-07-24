@@ -422,69 +422,31 @@ button{
     width: 500px; 
 }
 /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
-
 @media (max-width:768px){
 
-    header{
-        flex-wrap:wrap;
-        gap:10px;
-        height:auto;
-        padding:15px;
-    }
-
-    h1{
-        top:90px;
-        text-align:center;
-        font-size:28px;
-        padding:0 15px;
-    }
-
-    .input-title{
-        top:160px;
-        width:80%;
-        font-size:22px;
-    }
-
     .buttons-group{
-        position:static;
-        margin-top:170px;
-        margin-bottom:25px;
+        position: static;
         display:flex;
         justify-content:center;
         align-items:center;
         flex-wrap:wrap;
         gap:12px;
-    }
-
-    #btn-add,
-    #btn-minus,
-    button{
-        padding:10px 18px;
-        font-size:18px;
-    }
-
-    #jars-container{
         margin-top:20px;
-        gap:18px;
+        margin-bottom:20px;
     }
 
-    .jar-wrapper{
-        padding-top:10px;
+    h1{
+        position:static;
+        padding:0;
+        margin-top:90px;
+        margin-bottom:20px;
     }
 
-    .Palette{
-        width:95%;
-        flex-wrap:wrap;
-        gap:8px;
+    .input-title{
+        position:static;
+        transform:none;
+        margin-bottom:20px;
+        width:80%;
     }
 
-    .modal .content{
-        width:90%;
-        padding:20px;
-        font-size:14px;
-    }
-
-    body{
-        overflow-x:hidden;
-    }
 }
