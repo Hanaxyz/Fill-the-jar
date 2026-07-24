@@ -367,6 +367,7 @@ document.querySelector('.how').addEventListener('click', () => openModal(`
     <ul style="text-align: left; margin-top: 10px; line-height: 1.6;">
       <li><b>+</b> : Add a jar.</li>
       <li><b>-</b> : Remove a jar.</li>
+     <li><b>Palette</b>: Drag it anywhere on the screen.</li>
       <li><b>Particles</b> : Click the colored circle to start/stop filling.</li>
       <li><b>Clear a Jar content </b> : Click on a jar, then press clear.</li>
       <li><b>Clear All</b> : Just refresh the page :D</li>
