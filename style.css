@@ -232,6 +232,20 @@ button, #btn-add, #btn-minus {
   width: 500px;
 }
 
+#clear-btn {
+  background-color: #eae2e2;
+  color: rgb(57, 57, 57);
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.2s;
+  z-index: 10;
+}
+
 #close-btn { cursor: pointer; font-size: 20px; float: right; }
 #text { font-size: 17px; color: #000; text-align: center; line-height: 1.6; }
 
