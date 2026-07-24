@@ -47,15 +47,12 @@ header {
 #close-btn { cursor: pointer; font-size: 20px; float: right; }
 #text{font-size: 17px; color:#000; text-align: center ; line-height: 1.6;}
 h1{
-position: absolute;
-display: flex;
-top: 50px;
-padding-bottom: 200px;
-
-z-index: 10;
-
+    position:absolute;
+    top:50px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:10;
 }
-
 .input-title{
 
 position: absolute;
@@ -88,7 +85,7 @@ html, body {
     background-color: #dbcbcb;
     position: relative;
     min-height: 100vh;
-    z-index: 2;
+    z-index: 1;
 }
 
 
@@ -239,43 +236,40 @@ background-color: #ffecec;
 }
 
 
-
 #jars-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:row;
+    flex-wrap:wrap;
+    gap:20px;
 
+    position:relative;
+    z-index:5;
 
-display: flex;
-align-items: center;
-justify-content:center;
-flex-direction: row;
-flex-wrap: wrap;
-gap:20px;
-
-
-
+    margin-top:260px;
+    padding-bottom:100px;
 }
-
 
 .jar-wrapper{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:10px;
 
-display: flex;
-align-items: center;
-justify-content:center;
-flex-direction: column;
-gap:10px;
-padding-top: 50px;
-
-
+    position:relative;
+    z-index:5;
 }
-
 canvas {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1; 
-    display: block;
-    pointer-events: none;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    display:block;
+    pointer-events:none;
 }
 
 #main-jar{
