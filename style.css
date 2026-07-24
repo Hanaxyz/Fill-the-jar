@@ -421,21 +421,70 @@ button{
 .modal .content {
     width: 500px; 
 }
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
+@media (max-width:768px){
 
-@media (max-width: 600px) {
-    .modal .content {
-        width: 90%; 
-        padding: 20px;
-        font-size: 14px;
+    header{
+        flex-wrap:wrap;
+        gap:10px;
+        height:auto;
+        padding:15px;
     }
 
-    button, .about, .how {
-        padding: 15px 20px;
-        margin: 5px;
+    h1{
+        top:90px;
+        text-align:center;
+        font-size:28px;
+        padding:0 15px;
     }
 
-    body {
-        overflow-x: hidden;
+    .input-title{
+        top:160px;
+        width:80%;
+        font-size:22px;
+    }
+
+    .buttons-group{
+        position:static;
+        margin-top:170px;
+        margin-bottom:25px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    #btn-add,
+    #btn-minus,
+    button{
+        padding:10px 18px;
+        font-size:18px;
+    }
+
+    #jars-container{
+        margin-top:20px;
+        gap:18px;
+    }
+
+    .jar-wrapper{
+        padding-top:10px;
+    }
+
+    .Palette{
+        width:95%;
+        flex-wrap:wrap;
+        gap:8px;
+    }
+
+    .modal .content{
+        width:90%;
+        padding:20px;
+        font-size:14px;
+    }
+
+    body{
+        overflow-x:hidden;
     }
 }
