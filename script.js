@@ -2,7 +2,7 @@ let jars = [];
 let activeJarIndex = 0;
 let isFilling = false;
 let currentMaterial = null;
-let maxFill = 200;
+let maxFill = 350;
 let isDraggingPalette = false;
 let dragOffsetX = 0, dragOffsetY = 0;
 let modal = document.querySelector('.modal');
@@ -207,7 +207,7 @@ function draw() {
     let jarHeight = jarBottom - jarTop;
     if (jarHeight <= 0) continue;
 
-    let currentFillPx = min(jarData.fillLevel, jarHeight * 0.85);
+    let currentFillPx = min(jarData.fillLevel, jarHeight * 0.95);
     let fillSurfaceY = jarBottom - currentFillPx;
 
     if (isFilling && targetIndex === j && currentMaterial) {
