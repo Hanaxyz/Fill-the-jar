@@ -10,23 +10,23 @@ let modal = document.querySelector('.modal');
 let materials = {
   glitter: {
     palette: [[255,20,147],[180,3,91],[253,246,249],[130,3,78]],
-    size: 4, speed: 3.5, name: "Glitter"
+    size: 4, speed: 1.5, name: "Glitter"
   },
   sand: {
     palette: [[244,164,96],[210,180,140],[205,133,63]],
-    size: 4, speed: 4, name: "Sand"
+    size: 4, speed: 2, name: "Sand"
   },
   pearl: {
     palette: [[255,255,255],[240,248,255],[230,230,250]],
-    size: 8, speed: 2, name: "Pearl"
+    size: 8, speed: 0.5, name: "Pearl"
   },
   cute: {
     palette: [[255,105,180],[255,182,193],[186,85,211],[255,215,0]],
-    size: 5, speed: 3, name: "cute"
+    size: 5, speed: 1, name: "cute"
   },
   ocean: {
     palette: [[2,107,255],[24,2,102],[78,111,246]],
-    size: 9, speed: 3, name: "ocean"
+    size: 9, speed: 1, name: "ocean"
   },
   hearts: { emoji: "❤️", size: 9, speed: 3, name: "hearts" },
   stars:  { emoji: "⭐", size: 9, speed: 3, name: "stars" },
